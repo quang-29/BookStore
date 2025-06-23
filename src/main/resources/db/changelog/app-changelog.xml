@@ -1,0 +1,13 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+http://www.liquibase.org/xml/ns/dbchangelog
+https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <include file="db/changelog/v1_0/create_table_user.xml" />
+    <include file="/db/changelog/v1_0/insert_default_user.xml"/>
+    <include file="db/changelog/v1_1/add_column_user.xml" />
+    <include file="db/changelog/v1_1/insert_phone_number_user.xml" />
+    <include file="db/changelog/v1_1/insert-the-last-user.xml" />
+</databaseChangeLog>
