@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.util.Date;
 
 @Entity
@@ -27,6 +26,7 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "createdAt")
     private Date createdAt;
 

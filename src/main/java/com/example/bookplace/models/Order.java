@@ -1,34 +1,30 @@
 package com.example.bookplace.models;
 
+
+import com.example.bookplace.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.math.BigDecimal;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "author")
-public class Author {
+@Table(name = "orders")
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
-    private String authorName;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status",nullable = false)
+    private OrderStatus status;
 
-    @Column(name = "bio",columnDefinition = "TEXT")
-    private String bio;
-
-    @Column(name = "dob")
-    private Date dob;
-
-    @Column(name = "hometown")
-    private String hometown;
-
+    @Column(name = "total_price", nullable = false)
+    private BigDecimal totalPrice;
 }
