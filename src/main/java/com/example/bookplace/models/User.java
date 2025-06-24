@@ -1,4 +1,5 @@
 package com.example.bookplace.models;
+import com.example.bookplace.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,5 +33,18 @@ public class User {
 
     @Column(name = "phone")
     private String phone;
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "avatar")
+    private String avatarUrl;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role")
+    private Role role;
+
+    @Column(name = "enable")
+    private Boolean enable;
 
 }

@@ -9,5 +9,5 @@ import com.example.bookplace.response.SignupResponse;
 public interface UserService {
     LoginResponse login(LoginRequest request);
     SignupResponse signup(SignupRequest request);
-    User myProfile(String token);
+    User myProfile(String username);
 }
