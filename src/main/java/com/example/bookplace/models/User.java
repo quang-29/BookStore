@@ -30,4 +30,7 @@ public class User {
     @Column(name = "createdAt")
     private Date createdAt;
 
+    @Column(name = "phone")
+    private String phone;
+
 }

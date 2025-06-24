@@ -5,6 +5,7 @@ import com.example.bookplace.repositories.UserRepository;
 import com.example.bookplace.request.LoginRequest;
 import com.example.bookplace.request.SignupRequest;
 import com.example.bookplace.response.LoginResponse;
+import com.example.bookplace.response.SignupResponse;
 import com.example.bookplace.services.user.IUserServide;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,5 +32,15 @@ public class UserController {
     public ResponseEntity<List<User>> getAllUsers(){
         List<User> list = userRepository.findAll();
         return ResponseEntity.ok(list);
+    }
+    @PostMapping("/signup")
+    public ResponseEntity<SignupResponse> signup(@RequestBody SignupRequest request){
+        SignupResponse response = iUserServide.signup(request);
+        return ResponseEntity.ok(response);
+    }
+    @GetMapping("/profile")
+    public ResponseEntity<User> myProfile(@RequestBody String token){
+        User user = iUserServide.myProfile(token);
+        return ResponseEntity.ok(user);
     }
 }
