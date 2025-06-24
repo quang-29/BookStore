@@ -6,3 +6,11 @@ spring:
   liquibase:
     change-log: classpath:/db/changelog/app-changelog.xml
     default-schema: test
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+jwt:
+  SECRET_KEY: "my-bookplace-secret-key-which-should-be-long"
+  EXPIRATION_TIME: 86400000

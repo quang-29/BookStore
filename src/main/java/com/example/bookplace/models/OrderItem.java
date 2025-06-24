@@ -21,7 +21,8 @@ public class OrderItem {
     @Column(name = "order_id")
     private Long orderId;
 
-
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
 
 
 }
