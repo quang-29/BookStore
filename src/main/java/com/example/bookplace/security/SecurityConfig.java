@@ -19,12 +19,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private static final String[] PUBLIC_ENPOINTS = {"/api/v1/user/login", "/api/v1/user/signup"};
+    private static final String[] PUBLIC_ENPOINTS = {"/api/v1/user/login", "/api/v1/user/signup", "/api/v1/category/all"};
 
-    @Bean
-    public JwtAuthFilter jwtAuthFilter() {
-        return new JwtAuthFilter();
+
+    private final JwtAuthFilter jwtAuthFilter;
+
+    public SecurityConfig(JwtAuthFilter jwtAuthFilter) {
+        this.jwtAuthFilter = jwtAuthFilter;
     }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.cors(AbstractHttpConfigurer::disable)
@@ -33,7 +36,7 @@ public class SecurityConfig {
                         auth -> auth
                                 .requestMatchers(PUBLIC_ENPOINTS).permitAll()
                                 .anyRequest().authenticated())
-                .addFilterBefore(jwtAuthFilter(), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
     @Bean

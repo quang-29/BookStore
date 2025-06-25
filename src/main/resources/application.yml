@@ -12,5 +12,5 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 
 jwt:
-  SECRET_KEY: "my-bookplace-secret-key-which-should-be-long"
+  SECRET_KEY: "vNfCm9KVZBmnU2jqw1p+/vXTuivS2mHdChK4yZZbCbY="
   EXPIRATION_TIME: 86400000

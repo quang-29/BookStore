@@ -2,8 +2,8 @@ package com.example.bookplace.controllers;
 
 import com.example.bookplace.models.User;
 import com.example.bookplace.repositories.UserRepository;
-import com.example.bookplace.request.LoginRequest;
-import com.example.bookplace.request.SignupRequest;
+import com.example.bookplace.request.auth.LoginRequest;
+import com.example.bookplace.request.auth.SignupRequest;
 import com.example.bookplace.response.LoginResponse;
 import com.example.bookplace.response.SignupResponse;
 import com.example.bookplace.services.user.IUserService;

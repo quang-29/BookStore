@@ -4,16 +4,22 @@ import com.example.bookplace.enums.Role;
 import com.example.bookplace.jwt.JwtUtils;
 import com.example.bookplace.models.User;
 import com.example.bookplace.repositories.UserRepository;
-import com.example.bookplace.request.LoginRequest;
-import com.example.bookplace.request.SignupRequest;
+import com.example.bookplace.request.auth.LoginRequest;
+import com.example.bookplace.request.auth.SignupRequest;
 import com.example.bookplace.response.LoginResponse;
 import com.example.bookplace.response.SignupResponse;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class IUserService implements UserService {
@@ -28,10 +34,11 @@ public class IUserService implements UserService {
     }
     @Override
     public LoginResponse login(LoginRequest request) {
-        User user = userRepository.findByEmail(request.getEmail());
-        if(user == null) {
+        Optional<User> optionalUser = userRepository.findByEmail(request.getEmail());
+        if(optionalUser.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User với email không tồn tại");
         }
+        User user = optionalUser.get();
         if (!user.getPassword().equals(request.getPassword())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Mật khẩu đăng nhập không đúng");
         }
@@ -42,14 +49,16 @@ public class IUserService implements UserService {
                     .build();
     }
 
+
+    @Transactional
     @Override
     public SignupResponse signup(SignupRequest request) {
-        User foundUsername = userRepository.findByUsername(request.getUsername());
-        if(foundUsername != null){
+        Optional<User> optionalUsername = userRepository.findByUsername(request.getUsername());
+        if(optionalUsername.isPresent()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"User with username already exists");
         }
-        User foundEmail = userRepository.findByEmail(request.getEmail());
-        if(foundEmail != null){
+        Optional<User> optionalUserEmail = userRepository.findByEmail(request.getEmail());
+        if(optionalUserEmail.isPresent()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"User with email already exists");
         }
         User user = new User();
@@ -66,10 +75,17 @@ public class IUserService implements UserService {
 
     @Override
     public User myProfile(String username) {
-        User user = userRepository.findByUsername(username);
-        if(user == null){
+        Optional<User> optionalUser = userRepository.findByUsername(username);
+        if(optionalUser.isEmpty()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"User not found");
         }
-        return user;
+        return optionalUser.get();
+    }
+
+    @Override
+    public List<User> getAllUsers(int pageNumber, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        Page<User> users = userRepository.findAll(pageable);
+        return users.getContent();
     }
 }

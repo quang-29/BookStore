@@ -1,8 +1,8 @@
 package com.example.bookplace.services.author;
 
 import com.example.bookplace.models.Author;
-import com.example.bookplace.request.AuthorCreate;
-import com.example.bookplace.request.AuthorUpdate;
+import com.example.bookplace.request.author.AuthorCreate;
+import com.example.bookplace.request.author.AuthorUpdate;
 
 import java.util.List;
 
@@ -14,4 +14,6 @@ public interface AuthorService {
     List<Author> getAllAuthor(int pageSize, int pageNumber);
 
     Author getAuthorById(Long id);
+
+    Author getAuthorByBookId(Long bookId);
 }

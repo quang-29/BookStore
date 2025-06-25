@@ -1,6 +1,5 @@
-package com.example.bookplace.request;
+package com.example.bookplace.request.author;
 
-import jakarta.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
 

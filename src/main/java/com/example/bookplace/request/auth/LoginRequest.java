@@ -1,4 +1,4 @@
-package com.example.bookplace.request;
+package com.example.bookplace.request.auth;
 
 import lombok.Getter;
 import lombok.Setter;

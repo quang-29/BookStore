@@ -7,34 +7,57 @@
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 <changeSet id="v1_0-insert-default-user" author="quang">
     <insert tableName="user">
+        <column name="username" value="admin" />
+        <column name="email" value="admin@gmail.com" />
+        <column name="password" value="admin@123" />
+        <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
+        <column name="role" value="ADMIN" />
+        <column name="enable" valueNumeric="1" />
+        <column name="createdAt"  value="NOW()" />
+    </insert>
+    <insert tableName="user">
         <column name="username" value="quang1" />
         <column name="email" value="quang1@gmail.com" />
-        <column name="username" value="quang1" />
         <column name="password" value="quang1" />
+        <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
+        <column name="role" value="USER" />
+        <column name="enable" valueNumeric="1" />
         <column name="createdAt"  value="NOW()" />
     </insert>
     <insert tableName="user">
         <column name="username" value="quang2"/>
         <column name="password" value="quang2"/>
         <column name="email" value="quang2@gmail.com"/>
+        <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
+        <column name="role" value="USER" />
+        <column name="enable" valueNumeric="1" />
         <column name="createdAt" valueDate="NOW()"/>
     </insert>
     <insert tableName="user">
         <column name="username" value="quang3"/>
         <column name="password" value="quang3"/>
         <column name="email" value="quang3@gmail.com"/>
+        <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
+        <column name="role" value="USER" />
+        <column name="enable" valueNumeric="1" />
         <column name="createdAt" valueDate="NOW()"/>
     </insert>
     <insert tableName="user">
         <column name="username" value="quang4"/>
         <column name="password" value="quang4"/>
         <column name="email" value="quang4@gmail.com"/>
+        <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
+        <column name="role" value="USER" />
+        <column name="enable" valueNumeric="1" />
         <column name="createdAt" valueDate="NOW()"/>
     </insert>
     <insert tableName="user">
         <column name="username" value="quang5"/>
         <column name="password" value="quang5"/>
         <column name="email" value="quang5@gmail.com"/>
+        <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
+        <column name="role" value="USER" />
+        <column name="enable" valueNumeric="1"/>
         <column name="createdAt" valueDate="NOW()"/>
     </insert>
 

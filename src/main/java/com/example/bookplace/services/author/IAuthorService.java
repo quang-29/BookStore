@@ -2,12 +2,13 @@ package com.example.bookplace.services.author;
 
 import com.example.bookplace.models.Author;
 import com.example.bookplace.repositories.AuthorRepository;
-import com.example.bookplace.request.AuthorCreate;
-import com.example.bookplace.request.AuthorUpdate;
+import com.example.bookplace.request.author.AuthorCreate;
+import com.example.bookplace.request.author.AuthorUpdate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -22,11 +23,12 @@ public class IAuthorService implements AuthorService {
         this.authorRepository = authorRepository;
     }
 
+    @Transactional
     @Override
     public String addAuthor(AuthorCreate authorCreate) {
-        Author foundAuthor = authorRepository.findByName(authorCreate.getAuthorName());
-        if(foundAuthor != null) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "Author already exists");
+        Optional<Author> optionalAuthor = authorRepository.findByName(authorCreate.getAuthorName());
+        if (optionalAuthor.isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Author already exists");
         }
         Author author = new Author();
         author.setAuthorName(authorCreate.getAuthorName());
@@ -37,6 +39,7 @@ public class IAuthorService implements AuthorService {
         return "Add author successfully";
     }
 
+    @Transactional
     @Override
     public String updateAuthor(Long id, AuthorUpdate authorUpdate) {
         Optional<Author> foundAuthor = authorRepository.findById(id);
@@ -65,5 +68,14 @@ public class IAuthorService implements AuthorService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id not found");
         }
         return foundAuthor.get();
+    }
+
+    @Override
+    public Author getAuthorByBookId(Long bookId) {
+        Optional<Author> optionalAuthor = authorRepository.getAuthorByBookId(bookId);
+        if(optionalAuthor.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Author not found");
+        }
+        return optionalAuthor.get();
     }
 }

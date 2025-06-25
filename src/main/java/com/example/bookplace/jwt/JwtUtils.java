@@ -1,4 +1,5 @@
 package com.example.bookplace.jwt;
+import com.example.bookplace.enums.Role;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -12,6 +13,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
@@ -25,15 +27,18 @@ public class JwtUtils {
     private long EXPIRATION_TIME;
 
     private SecretKey key;
-    // Initializes the key after the class is instantiated and the SECRET_KEY is injected,
-    // preventing the repeated creation of the key and enhancing performance
     @PostConstruct
     public void init() {
-        this.key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
+        this.key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(SECRET_KEY));
     }
     public String generateToken(String username) {
+        List<String> roles = username.toLowerCase().contains("admin")
+                ? List.of(Role.ADMIN.name())
+                : List.of(Role.USER.name());
         return Jwts.builder()
                 .setSubject(username)
+                .setHeaderParam("typ", "JWT")
+                .claim("roles", roles)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + EXPIRATION_TIME))
                 .signWith(key, SignatureAlgorithm.HS256)

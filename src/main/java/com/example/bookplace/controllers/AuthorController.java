@@ -1,8 +1,8 @@
 package com.example.bookplace.controllers;
 
 import com.example.bookplace.models.Author;
-import com.example.bookplace.request.AuthorCreate;
-import com.example.bookplace.request.AuthorUpdate;
+import com.example.bookplace.request.author.AuthorCreate;
+import com.example.bookplace.request.author.AuthorUpdate;
 import com.example.bookplace.services.author.AuthorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -40,6 +40,11 @@ public class AuthorController {
     @GetMapping("/{id}")
     public ResponseEntity<Author> getAuthorById(@PathVariable("id") Long id) {
         Author author = authorService.getAuthorById(id);
+        return ResponseEntity.ok(author);
+    }
+    @GetMapping("/{bookId}")
+    public ResponseEntity<Author> getAuthorByBookId(@PathVariable("bookId") Long bookId) {
+        Author author = authorService.getAuthorByBookId(bookId);
         return ResponseEntity.ok(author);
     }
 

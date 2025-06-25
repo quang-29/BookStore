@@ -5,8 +5,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Optional;
+
 public interface AuthorRepository extends JpaRepository<Author, Long> {
 
     @Query(value = "SELECT * from author where name = :authorName ", nativeQuery = true)
-    Author findByName(@Param("authorName") String authorName);
+    Optional<Author> findByName(@Param("authorName") String authorName);
+
+    @Query(value = "SELECT * FROM author WHERE id = (SELECT author_id FROM book WHERE id = :bookId)", nativeQuery = true)
+    Optional<Author> getAuthorByBookId(@Param("bookId") Long bookId);
+
 }

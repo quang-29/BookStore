@@ -10,10 +10,24 @@
         <column name="id" type="INT" autoIncrement="true">
             <constraints primaryKey="true" nullable="false"/>
         </column>
-        <column name="email" type="VARCHAR(255)"/>
+
         <column name="username" type="VARCHAR(255)"/>
-        <column name="password" type="VARCHAR(255)"/>
-        <column name="createdAt" type="TIMESTAMP"/>
+
+        <column name="password" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+        </column>
+
+        <column name="email" type="VARCHAR(255)"/>
+
+        <column name="createdAt" type="DATE"/>
+
+        <column name="address" type="VARCHAR(255)"/>
+
+        <column name="avatar" type="VARCHAR(512)"/>
+
+        <column name="role" type="VARCHAR(50)"/>
+
+        <column name="enable" type="BOOLEAN"/>
     </createTable>
 </changeSet>
 </databaseChangeLog>

@@ -61,5 +61,11 @@ public class Book {
     @Temporal(TemporalType.DATE)
     @Column(name = "publishedDate", nullable = false)
     private Date publishedDate;
+
+    @Column(name = "author_id")
+    private Long authorId;
+
+    @Column(name = "category_id")
+    private Long categoryId;
 }
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="v1_0-insert-default-category" author="quang">
+        <insert tableName="category">
+            <column name="name" value="Khoa học - Công nghệ"/>
+            <column name="thumbnail" value="https://theme.hstatic.net/200000512563/1000871060/14/categorybanner2_1_img.jpg?v=124" />
+        </insert>
+        <insert tableName="category">
+            <column name="name" value="Tâm lý - Kỹ năng sống"/>
+            <column name="thumbnail" value="https://theme.hstatic.net/200000512563/1000871060/14/categorybanner_4_img.jpg?v=124" />
+        </insert>
+        <insert tableName="category">
+            <column name="name" value="Văn học"/>
+            <column name="thumbnail" value="https://theme.hstatic.net/200000512563/1000871060/14/categorybanner_5_img.jpg?v=124" />
+        </insert>
+        <insert tableName="category">
+            <column name="name" value="Thiếu nhi"/>
+            <column name="thumbnail" value="https://theme.hstatic.net/200000512563/1000871060/14/categorybanner2_5_img.jpg?v=124" />
+        </insert><insert tableName="category">
+        <column name="name" value="Truyện - Giả tưởng"/>
+        <column name="thumbnail" value="https://theme.hstatic.net/200000512563/1000871060/14/categorybanner_3_img.jpg?v=124" />
+    </insert>
+
+    </changeSet>
+</databaseChangeLog>
