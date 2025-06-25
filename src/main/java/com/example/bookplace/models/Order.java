@@ -21,6 +21,12 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "address", nullable = false)
+    private String address;
+
+    @Column(name = "user_id",nullable = false)
+    private Long userId;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "status",nullable = false)
     private OrderStatus status;
