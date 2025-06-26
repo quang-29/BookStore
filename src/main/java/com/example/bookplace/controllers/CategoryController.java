@@ -4,7 +4,10 @@ package com.example.bookplace.controllers;
 import com.example.bookplace.models.Category;
 import com.example.bookplace.request.category.CategoryCreate;
 import com.example.bookplace.request.category.CategoryUpdate;
+import com.example.bookplace.response.PageResponse;
 import com.example.bookplace.services.category.CategoryService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,17 +25,15 @@ public class CategoryController {
         return result;
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/update/{id}")
     public String updateCategory(@PathVariable Long id, @RequestBody CategoryUpdate categoryUpdate) {
         String result = categoryService.updateCategory(id,categoryUpdate);
         return result;
     }
 
     @GetMapping("/all")
-    public List<Category> getAllCategories(
-            @RequestParam(defaultValue = "10") int pageSize,
-            @RequestParam(defaultValue = "0") int pageNumber) {
-        List<Category> categories = categoryService.getAllCategories(pageSize,pageNumber);
+    public Page<Category> getAllCategories(Pageable pageable) {
+        Page<Category> categories = categoryService.getAllCategories(pageable);
         return categories;
     }
 

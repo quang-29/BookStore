@@ -18,6 +18,8 @@
 
             <column name="bio" type="TEXT"/>
 
+            <column name="avatar" type="VARCHAR(255)" />
+
             <column name="dob" type="DATE"/>
 
             <column name="hometown" type="VARCHAR(255)"/>

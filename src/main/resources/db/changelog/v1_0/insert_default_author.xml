@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="v1_0-insert-default-author" author="quang">
+        <insert tableName="author">
+            <column name="name" value="Nguyễn Nhật Ánh"/>
+            <column name="bio" value="Nhà văn nổi tiếng với các tác phẩm dành cho tuổi học trò."/>
+            <column name="dob" valueDate="1955-05-07"/>
+            <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
+            <column name="hometown" value="Quảng Nam"/>
+        </insert>
+
+        <insert tableName="author">
+            <column name="name" value="Haruki Murakami"/>
+            <column name="bio" value="Tác giả người Nhật Bản nổi tiếng với văn học huyền ảo và hiện thực kỳ ảo."/>
+            <column name="dob" valueDate="1949-01-12"/>
+            <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
+            <column name="hometown" value="Kyoto, Nhật Bản"/>
+        </insert>
+
+        <insert tableName="author">
+            <column name="name" value="J.K. Rowling"/>
+            <column name="bio" value="Tác giả của bộ tiểu thuyết Harry Potter nổi tiếng toàn cầu."/>
+            <column name="dob" valueDate="1965-07-31"/>
+            <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
+            <column name="hometown" value="Yate, Anh"/>
+        </insert>
+
+        <insert tableName="author">
+            <column name="name" value="Paulo Coelho"/>
+            <column name="bio" value="Tác giả Brazil nổi tiếng với 'Nhà Giả Kim'."/>
+            <column name="dob" valueDate="1947-08-24"/>
+            <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
+            <column name="hometown" value="Rio de Janeiro, Brazil"/>
+        </insert>
+
+        <insert tableName="author">
+            <column name="name" value="Victor Hugo"/>
+            <column name="bio" value="Nhà văn Pháp với tác phẩm kinh điển như 'Les Misérables'."/>
+            <column name="dob" valueDate="1802-02-26"/>
+            <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
+            <column name="hometown" value="Besançon, Pháp"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

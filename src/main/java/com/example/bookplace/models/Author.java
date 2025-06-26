@@ -25,6 +25,9 @@ public class Author {
     @Column(name = "bio",columnDefinition = "TEXT")
     private String bio;
 
+    @Column(name = "avatar")
+    private String avatar;
+
     @Column(name = "dob")
     private Date dob;
 

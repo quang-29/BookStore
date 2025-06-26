@@ -8,6 +8,7 @@ import com.example.bookplace.request.auth.LoginRequest;
 import com.example.bookplace.request.auth.SignupRequest;
 import com.example.bookplace.response.LoginResponse;
 import com.example.bookplace.response.SignupResponse;
+import com.example.bookplace.response.PageResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,7 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -49,7 +49,6 @@ public class IUserService implements UserService {
                     .build();
     }
 
-
     @Transactional
     @Override
     public SignupResponse signup(SignupRequest request) {
@@ -72,7 +71,6 @@ public class IUserService implements UserService {
         userRepository.save(user);
         return SignupResponse.builder().message("Sign up SuccessFul").build();
     }
-
     @Override
     public User myProfile(String username) {
         Optional<User> optionalUser = userRepository.findByUsername(username);
@@ -81,11 +79,18 @@ public class IUserService implements UserService {
         }
         return optionalUser.get();
     }
+    @Override
+    public Page<User> getAllUsers(Pageable pageable) {
+        Page<User> users = userRepository.findAll(pageable);
+        return users;
+    }
 
     @Override
-    public List<User> getAllUsers(int pageNumber, int pageSize) {
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
-        Page<User> users = userRepository.findAll(pageable);
-        return users.getContent();
+    public User findUserById(Long id) {
+        Optional<User> optionalUser = userRepository.getUserById(id);
+        if(optionalUser.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"User not found");
+        }
+        return optionalUser.get();
     }
 }

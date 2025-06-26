@@ -10,12 +10,17 @@ import com.example.bookplace.repositories.OrderRepository;
 import com.example.bookplace.request.book.BookCart;
 import com.example.bookplace.request.order.OrderCreate;
 import com.example.bookplace.request.order.OrderUpdate;
+import com.example.bookplace.response.PageResponse;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -71,16 +76,22 @@ public class IOrderService implements OrderService {
 
     @Override
     public Order getOrderById(Long id) {
-        return null;
+        Optional<Order> order = orderRepository.findById(id);
+        if(order.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Order not found");
+        }
+        return order.get();
     }
 
     @Override
-    public List<Order> getAllOrders(int pageSize, int pageNumber) {
-        return List.of();
+    public Page<Order> getAllOrders(Pageable pageable) {
+        Page<Order> orders = orderRepository.findAll(pageable);
+        return orders;
     }
 
     @Override
-    public List<Order> getAllOrdersByUserId(Long userId) {
-        return List.of();
+    public Page<Order> getAllOrdersByUserId(Long userId,Pageable pageable) {
+        Page<Order> orders = orderRepository.findAllOrdersByUserId(userId);
+        return orders;
     }
 }

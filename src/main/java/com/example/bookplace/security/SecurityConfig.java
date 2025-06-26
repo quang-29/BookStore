@@ -19,7 +19,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private static final String[] PUBLIC_ENPOINTS = {"/api/v1/user/login", "/api/v1/user/signup", "/api/v1/category/all"};
+    private static final String[] PUBLIC_ENPOINTS = {"/api/v1/user/login", "/api/v1/user/signup"
+            ,"/api/v1/category/all", "/api/v1/books/all", "/api/v1/author/all"};
 
 
     private final JwtAuthFilter jwtAuthFilter;

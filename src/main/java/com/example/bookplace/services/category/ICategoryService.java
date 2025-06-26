@@ -3,6 +3,7 @@ package com.example.bookplace.services.category;
 import com.example.bookplace.models.Category;
 import com.example.bookplace.repositories.CategoryRepository;
 import com.example.bookplace.request.category.CategoryUpdate;
+import com.example.bookplace.response.PageResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -52,9 +53,8 @@ public class ICategoryService implements CategoryService {
     }
 
     @Override
-    public List<Category> getAllCategories(int pageSize, int pageNumber) {
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+    public Page<Category> getAllCategories(Pageable pageable) {
         Page<Category> categoryPage = categoryRepository.findAll(pageable);
-        return categoryPage.getContent();
+        return categoryPage;
     }
 }

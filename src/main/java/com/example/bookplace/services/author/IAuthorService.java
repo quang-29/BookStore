@@ -4,8 +4,10 @@ import com.example.bookplace.models.Author;
 import com.example.bookplace.repositories.AuthorRepository;
 import com.example.bookplace.request.author.AuthorCreate;
 import com.example.bookplace.request.author.AuthorUpdate;
+import com.example.bookplace.response.PageResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,10 +57,16 @@ public class IAuthorService implements AuthorService {
     }
 
     @Override
-    public List<Author> getAllAuthor(int pageSize, int pageNumber) {
-        PageRequest pageRequest = PageRequest.of(pageSize, pageSize);
-        Page<Author> authors = authorRepository.findAll(pageRequest);
-        return authors.getContent();
+    public Page<Author> getAllAuthor(Pageable pageable) {
+        Page<Author> authors = authorRepository.findAll(pageable);
+//        PageResponse<Author> pageResponse = new PageResponse();
+//        pageResponse.setContent(authors.getContent());
+//        pageResponse.setPageNumber(authors.getNumber());
+//        pageResponse.setPageSize(authors.getSize());
+//        pageResponse.setTotalPages(authors.getTotalPages());
+//        pageResponse.setTotalElements(authors.getTotalElements());
+//        pageResponse.setLastPage(pageResponse.isLastPage());
+        return authors;
     }
 
     @Override

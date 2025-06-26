@@ -12,7 +12,6 @@ import java.util.Date;
 public class BookUpdate {
     private String title;
     private BigDecimal price;
-    private Double averageRating = 0.0;
     private String description;
     private String language;
     private String imagePath;
@@ -21,7 +20,6 @@ public class BookUpdate {
     private String publisher;
     private Integer reprint;
     private Long stock;
-    private Long sold;
     private Date publishedDate;
     private String authorName;
 }

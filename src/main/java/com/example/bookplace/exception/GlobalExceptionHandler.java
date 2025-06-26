@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String,String>> handleCommonException(Exception ex){
         int code = parseInt(ex.getMessage().substring(0,3));
-        String message = ex.getMessage().substring(ex.getMessage().indexOf("\"")+1);
+        String message = ex.getMessage().substring(ex.getMessage().indexOf("\"")+1, ex.getMessage().lastIndexOf("\""));
         Map<String,String> response = new HashMap<>();
         response.put("message", message);
         response.put("code", String.valueOf(code));
