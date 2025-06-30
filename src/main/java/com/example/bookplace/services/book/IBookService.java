@@ -36,16 +36,6 @@ public class IBookService implements BookService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Book already exists");
         }
         Book book = bookMapper.mapToBook(bookCreate);
-        Optional<Author> author = authorRepository.findByName(bookCreate.getAuthorName());
-
-        if (author.isPresent()) {
-            book.setAuthorId(author.get().getId());
-        } else {
-            Author newAuthor = new Author();
-            newAuthor.setAuthorName(bookCreate.getAuthorName());
-            Author savedAuthor = authorRepository.save(newAuthor);
-            book.setAuthorId(savedAuthor.getId());
-        }
         bookRepository.save(book);
         return "Add Book Successfully";
     }
@@ -56,16 +46,6 @@ public class IBookService implements BookService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Book not found"));
 
         bookMapper.updateBookFromDto(bookUpdate, existingBook);
-        Optional<Author> authorOptional = authorRepository.findByName(bookUpdate.getAuthorName());
-        Long authorId;
-        if (authorOptional.isPresent()) {
-            authorId = authorOptional.get().getId();
-        } else {
-            Author newAuthor = new Author();
-            newAuthor.setAuthorName(bookUpdate.getAuthorName());
-            authorId = authorRepository.save(newAuthor).getId();
-        }
-        existingBook.setAuthorId(authorId);
         bookRepository.save(existingBook);
         return "Update Book Successfully";
     }

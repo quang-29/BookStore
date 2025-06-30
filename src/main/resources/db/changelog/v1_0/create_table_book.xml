@@ -58,7 +58,8 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="author_id" type="BIGINT"/>
+            <column name="author_name" type="VARCHAR(512)"/>
+            <column name="category_id" type="BIGINT"/>
         </createTable>
     </changeSet>
 

@@ -6,44 +6,126 @@
         http://www.liquibase.org/xml/ns/dbchangelog
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
     <changeSet id="v1_0-insert-default-author" author="quang">
-        <insert tableName="author">
-            <column name="name" value="Nguyễn Nhật Ánh"/>
-            <column name="bio" value="Nhà văn nổi tiếng với các tác phẩm dành cho tuổi học trò."/>
-            <column name="dob" valueDate="1955-05-07"/>
-            <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
-            <column name="hometown" value="Quảng Nam"/>
-        </insert>
+            <insert tableName="author">
+                <column name="id" value="1"/>
+                <column name="name" value="Klaus Schwab"/>
+                <column name="bio" value="Chủ tịch Diễn đàn Kinh tế Thế giới, nhà kinh tế và nhà tư tưởng chính sách."/>
+                <column name="avatar" value="https://example.com/avatars/klaus_schwab.jpg"/>
+                <column name="dob" value="1938-03-30"/>
+                <column name="hometown" value="Germany"/>
+            </insert>
+            <insert tableName="author">
+                <column name="id" value="2"/>
+                <column name="name" value="Kai-Fu Lee"/>
+                <column name="bio" value="Nhà đầu tư, chuyên gia AI, từng là giám đốc Google Trung Quốc."/>
+                <column name="avatar" value="https://example.com/avatars/kaifu_lee.jpg"/>
+                <column name="dob" value="1961-12-03"/>
+                <column name="hometown" value="Taiwan"/>
+            </insert>
+            <insert tableName="author">
+                <column name="id" value="3"/>
+                <column name="name" value="Nguyễn Văn A"/>
+                <column name="bio" value="Tác giả Việt chuyên viết sách lập trình cho người mới bắt đầu."/>
+                <column name="avatar" value="https://example.com/avatars/nguyenvana.jpg"/>
+                <column name="dob" value="1990-05-15"/>
+                <column name="hometown" value="Hà Nội, Việt Nam"/>
+            </insert>
+            <insert tableName="author">
+                <column name="id" value="4"/>
+                <column name="name" value="Dale Carnegie"/>
+                <column name="bio" value="Tác giả nổi tiếng người Mỹ, chuyên về giao tiếp và phát triển cá nhân."/>
+                <column name="avatar" value="https://example.com/avatars/dale_carnegie.jpg"/>
+                <column name="dob" value="1888-11-24"/>
+                <column name="hometown" value="Missouri, USA"/>
+            </insert>
+            <insert tableName="author">
+                <column name="id" value="5"/>
+                <column name="name" value="Jack Canfield"/>
+                <column name="bio" value="Tác giả sách tự lực nổi tiếng, đồng sáng lập loạt sách Chicken Soup."/>
+                <column name="avatar" value="https://example.com/avatars/jack_canfield.jpg"/>
+                <column name="dob" value="1944-08-19"/>
+                <column name="hometown" value="Texas, USA"/>
+            </insert>
+            <insert tableName="author">
+                <column name="id" value="6"/>
+                <column name="name" value="James Clear"/>
+                <column name="bio" value="Diễn giả, blogger và tác giả sách best-seller về thói quen và năng suất."/>
+                <column name="avatar" value="https://example.com/avatars/james_clear.jpg"/>
+                <column name="dob" value="1986-01-22"/>
+                <column name="hometown" value="Ohio, USA"/>
+            </insert>
+            <insert tableName="author">
+                <column name="id" value="7"/>
+                <column name="name" value="Nam Cao"/>
+                <column name="bio" value="Nhà văn hiện thực xuất sắc của Việt Nam thời kỳ 1930–1945."/>
+                <column name="avatar" value="https://example.com/avatars/nam_cao.jpg"/>
+                <column name="dob" value="1915-10-29"/>
+                <column name="hometown" value="Hà Nam, Việt Nam"/>
+            </insert>
+            <insert tableName="author">
+                <column name="id" value="8"/>
+                <column name="name" value="Nguyễn Nhật Ánh"/>
+                <column name="bio" value="Tác giả chuyên viết truyện cho thanh thiếu niên, nổi tiếng tại Việt Nam."/>
+                <column name="avatar" value="https://example.com/avatars/nguyen_nhat_anh.jpg"/>
+                <column name="dob" value="1955-05-07"/>
+                <column name="hometown" value="Quảng Nam, Việt Nam"/>
+            </insert>
+            <insert tableName="author">
+                <column name="id" value="9"/>
+                <column name="name" value="Nguyễn Tuân"/>
+                <column name="bio" value="Nhà văn nổi tiếng với phong cách tùy bút độc đáo và ngôn ngữ điêu luyện."/>
+                <column name="avatar" value="https://example.com/avatars/nguyen_tuan.jpg"/>
+                <column name="dob" value="1910-07-10"/>
+                <column name="hometown" value="Hà Nội, Việt Nam"/>
+            </insert>
+            <insert tableName="author">
+                <column name="id" value="10"/>
+                <column name="name" value="Tô Hoài"/>
+                <column name="bio" value="Tác giả hàng đầu trong văn học thiếu nhi Việt Nam với nhiều tác phẩm nổi bật."/>
+                <column name="avatar" value="https://example.com/avatars/to_hoai.jpg"/>
+                <column name="dob" value="1920-09-27"/>
+                <column name="hometown" value="Hà Nội, Việt Nam"/>
+            </insert>
+            <insert tableName="author">
+                <column name="id" value="11"/>
+                <column name="name" value="J.K. Rowling"/>
+                <column name="bio" value="Tác giả nổi tiếng toàn cầu với bộ truyện Harry Potter."/>
+                <column name="avatar" value="https://example.com/avatars/jk_rowling.jpg"/>
+                <column name="dob" value="1965-07-31"/>
+                <column name="hometown" value="Yate, England"/>
+            </insert>
+            <insert tableName="author">
+                <column name="id" value="12"/>
+                <column name="name" value="Tổng hợp dân gian Việt Nam"/>
+                <column name="bio" value="Tuyển chọn các truyện cổ tích dân gian truyền miệng từ khắp các vùng miền."/>
+                <column name="avatar" value="https://example.com/avatars/vietnam_folktales.jpg"/>
+                <column name="dob" value="1900-01-01"/>
+                <column name="hometown" value="Việt Nam"/>
+            </insert>
+            <insert tableName="author">
+                <column name="id" value="13"/>
+                <column name="name" value="J.R.R. Tolkien"/>
+                <column name="bio" value="Cha đẻ của thể loại fantasy hiện đại với loạt truyện Middle-earth."/>
+                <column name="avatar" value="https://example.com/avatars/tolkien.jpg"/>
+                <column name="dob" value="1892-01-03"/>
+                <column name="hometown" value="Bloemfontein, South Africa"/>
+            </insert>
+            <insert tableName="author">
+                <column name="id" value="14"/>
+                <column name="name" value="James Dashner"/>
+                <column name="bio" value="Tác giả nổi tiếng với loạt truyện giả tưởng Maze Runner."/>
+                <column name="avatar" value="https://example.com/avatars/james_dashner.jpg"/>
+                <column name="dob" value="1972-11-26"/>
+                <column name="hometown" value="Georgia, USA"/>
+            </insert>
+            <insert tableName="author">
+                <column name="id" value="15"/>
+                <column name="name" value="Ernest Cline"/>
+                <column name="bio" value="Tác giả Mỹ nổi bật với tiểu thuyết khoa học viễn tưởng Ready Player One."/>
+                <column name="avatar" value="https://example.com/avatars/ernest_cline.jpg"/>
+                <column name="dob" value="1972-03-29"/>
+                <column name="hometown" value="Ohio, USA"/>
+            </insert>
 
-        <insert tableName="author">
-            <column name="name" value="Haruki Murakami"/>
-            <column name="bio" value="Tác giả người Nhật Bản nổi tiếng với văn học huyền ảo và hiện thực kỳ ảo."/>
-            <column name="dob" valueDate="1949-01-12"/>
-            <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
-            <column name="hometown" value="Kyoto, Nhật Bản"/>
-        </insert>
-
-        <insert tableName="author">
-            <column name="name" value="J.K. Rowling"/>
-            <column name="bio" value="Tác giả của bộ tiểu thuyết Harry Potter nổi tiếng toàn cầu."/>
-            <column name="dob" valueDate="1965-07-31"/>
-            <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
-            <column name="hometown" value="Yate, Anh"/>
-        </insert>
-
-        <insert tableName="author">
-            <column name="name" value="Paulo Coelho"/>
-            <column name="bio" value="Tác giả Brazil nổi tiếng với 'Nhà Giả Kim'."/>
-            <column name="dob" valueDate="1947-08-24"/>
-            <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
-            <column name="hometown" value="Rio de Janeiro, Brazil"/>
-        </insert>
-
-        <insert tableName="author">
-            <column name="name" value="Victor Hugo"/>
-            <column name="bio" value="Nhà văn Pháp với tác phẩm kinh điển như 'Les Misérables'."/>
-            <column name="dob" valueDate="1802-02-26"/>
-            <column name="avatar" value="https://res.cloudinary.com/dmotq51fh/image/upload/v1749655676/R_wcf7qv.jpg" />
-            <column name="hometown" value="Besançon, Pháp"/>
-        </insert>
     </changeSet>
 </databaseChangeLog>

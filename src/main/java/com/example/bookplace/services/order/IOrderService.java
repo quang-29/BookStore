@@ -91,7 +91,7 @@ public class IOrderService implements OrderService {
 
     @Override
     public Page<Order> getAllOrdersByUserId(Long userId,Pageable pageable) {
-        Page<Order> orders = orderRepository.findAllOrdersByUserId(userId);
+        Page<Order> orders = orderRepository.findAllOrdersByUserId(userId, pageable);
         return orders;
     }
 }

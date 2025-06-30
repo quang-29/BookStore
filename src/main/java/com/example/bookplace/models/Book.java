@@ -15,7 +15,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "books")
+@Table(name = "book")
 public class Book {
 
     @Id
@@ -62,8 +62,8 @@ public class Book {
     @Column(name = "publishedDate", nullable = false)
     private Date publishedDate;
 
-    @Column(name = "author_id")
-    private Long authorId;
+    @Column(name = "author_name")
+    private String authorName;
 
     @Column(name = "category_id")
     private Long categoryId;

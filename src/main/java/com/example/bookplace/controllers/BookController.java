@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/v1/book")
 public class BookController {
@@ -47,8 +48,8 @@ public class BookController {
         return ResponseEntity.ok(book);
     }
 
-    @GetMapping("/{categoryId}/book")
-    public ResponseEntity<List<Book>> getBooksByCategoryId(@PathVariable Long categoryId) {
+    @GetMapping("/category/{id}")
+    public ResponseEntity<List<Book>> getBooksByCategoryId(@PathVariable("id") Long categoryId) {
         List<Book> books = bookService.getBooksByCategoryId(categoryId);
         return ResponseEntity.ok(books);
     }

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="v1_0-insert-default-book" author="quang">
+    <insert tableName="book">
+        <column name="title" value="Cuộc cách mạng công nghiệp lần thứ tư"/>
+        <column name="price" value="150000"/>
+        <column name="average_rating" value="4.5"/>
+        <column name="book_description" value="Cuốn sách mang đến cái nhìn toàn diện về cuộc cách mạng công nghiệp 4.0 – nơi công nghệ số, sinh học và vật lý hội tụ. Tác giả phân tích các xu hướng lớn như trí tuệ nhân tạo, robot, IoT, blockchain và in 3D, cũng như tác động sâu rộng của chúng đến mô hình kinh doanh, chính trị, xã hội và đời sống con người trong tương lai gần."/>
+        <column name="language" value="Tiếng Việt"/>
+        <column name="image_path" value="https://cdn1.fahasa.com/media/catalog/product/c/_/c_ch-m_ng-c_ng-nghi_p-l_n-th_-t_1.jpg"/>
+        <column name="isbn" value="9781234567890"/>
+        <column name="page" value="250"/>
+        <column name="publisher" value="NXB Công nghệ"/>
+        <column name="reprint" value="1"/>
+        <column name="stock" value="100"/>
+        <column name="sold" value="20"/>
+        <column name="publishedDate" value="2024-01-10"/>
+        <column name="author_name" value="Klaus Schwab"/>
+        <column name="category_id" value="1"/>
+    </insert>
+    <insert tableName="book">
+        <column name="title" value="Trí tuệ nhân tạo thời đại mới"/>
+        <column name="price" value="180000"/>
+        <column name="average_rating" value="4.7"/>
+        <column name="book_description" value="Tác phẩm khám phá những tiến bộ vượt bậc trong lĩnh vực trí tuệ nhân tạo, từ máy học, xử lý ngôn ngữ tự nhiên đến ứng dụng thực tiễn như xe tự lái, y học thông minh và tài chính. Cuốn sách giúp người đọc hình dung được vai trò của AI trong nền kinh tế hiện đại và những thách thức đạo đức đang đặt ra."/>
+        <column name="language" value="Tiếng Việt"/>
+        <column name="image_path" value="https://bizbooks.vn/uploads/images/2023/thang-10/1-AIGC-mt.jpg"/>
+        <column name="isbn" value="9781234567891"/>
+        <column name="page" value="320"/>
+        <column name="publisher" value="NXB Khoa học"/>
+        <column name="reprint" value="2"/>
+        <column name="stock" value="150"/>
+        <column name="sold" value="35"/>
+        <column name="publishedDate" value="2024-03-12"/>
+        <column name="author_name" value="Kai-Fu Lee"/>
+        <column name="category_id" value="1"/>
+    </insert>
+    <insert tableName="book">
+        <column name="title" value="Đắc nhân tâm"/>
+        <column name="price" value="100000"/>
+        <column name="average_rating" value="4.9"/>
+        <column name="book_description" value="Một trong những tác phẩm kinh điển về nghệ thuật giao tiếp và thuyết phục. Cuốn sách cung cấp những nguyên tắc vàng để gây ảnh hưởng tích cực, xây dựng mối quan hệ bền vững và trở thành người có sức hút trong xã hội hiện đại."/>
+        <column name="language" value="Tiếng Việt"/>
+        <column name="image_path" value="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled_1.jpg"/>
+        <column name="isbn" value="9781234567893"/>
+        <column name="page" value="300"/>
+        <column name="publisher" value="NXB Tổng hợp"/>
+        <column name="reprint" value="5"/>
+        <column name="stock" value="200"/>
+        <column name="sold" value="150"/>
+        <column name="publishedDate" value="2022-05-10"/>
+        <column name="author_name" value="Dale Carnegie"/>
+        <column name="category_id" value="2"/>
+    </insert>
+    <insert tableName="book">
+        <column name="title" value="Sức mạnh của sự tập trung"/>
+        <column name="price" value="105000"/>
+        <column name="average_rating" value="4.6"/>
+        <column name="book_description" value="Cuốn sách chỉ ra tầm quan trọng của việc rèn luyện sự tập trung để nâng cao hiệu quả công việc và phát triển bản thân. Nội dung gồm các chiến lược thực tế, bài tập luyện trí não và mẹo để kiểm soát sự xao nhãng."/>
+        <column name="language" value="Tiếng Việt"/>
+        <column name="image_path" value="https://cdn1.fahasa.com/media/catalog/product/i/m/image_244718_1_4003.jpg"/>
+        <column name="isbn" value="9781234567894"/>
+        <column name="page" value="200"/>
+        <column name="publisher" value="NXB Lao động"/>
+        <column name="reprint" value="1"/>
+        <column name="stock" value="120"/>
+        <column name="sold" value="50"/>
+        <column name="publishedDate" value="2023-06-22"/>
+        <column name="author_name" value="Jack Canfield"/>
+        <column name="category_id" value="2"/>
+    </insert>
+    <insert tableName="book">
+        <column name="title" value="Thói quen nguyên tử"/>
+        <column name="price" value="130000"/>
+        <column name="average_rating" value="4.8"/>
+        <column name="book_description" value="Cuốn sách hướng dẫn cách xây dựng thói quen tốt và loại bỏ thói quen xấu thông qua các nguyên tắc khoa học dễ áp dụng. Với cách tiếp cận từng bước nhỏ nhưng mang lại thay đổi lớn, đây là cẩm nang thực tiễn để đạt được thành công bền vững trong cuộc sống và sự nghiệp."/>
+        <column name="language" value="Tiếng Việt"/>
+        <column name="image_path" value="https://taimienphisach.com/wp-content/uploads/2024/08/atomic-habits-bia-677x1024-1.webp"/>
+        <column name="isbn" value="9781234567895"/>
+        <column name="page" value="320"/>
+        <column name="publisher" value="NXB Trẻ"/>
+        <column name="reprint" value="4"/>
+        <column name="stock" value="100"/>
+        <column name="sold" value="70"/>
+        <column name="publishedDate" value="2021-09-15"/>
+        <column name="author_name" value="James Clear"/>
+        <column name="category_id" value="2"/>
+    </insert>
+
+    <insert tableName="book">
+        <column name="title" value="Chí Phèo"/>
+        <column name="price" value="75000"/>
+        <column name="average_rating" value="4.2"/>
+        <column name="book_description" value="Tác phẩm phản ánh hiện thực xã hội Việt Nam nửa đầu thế kỷ XX qua số phận bi kịch của Chí Phèo – một con người bị tha hóa nhưng vẫn khao khát được sống lương thiện. Đây là kiệt tác thể hiện tư tưởng nhân văn sâu sắc của Nam Cao."/>
+        <column name="language" value="Tiếng Việt"/>
+        <column name="image_path" value="https://product.hstatic.net/200000696663/product/truyen-ngan-chi-pheo-nam-cao_17a42d45c5e84fdcb8a2365d91d4e2c6.jpg"/>
+        <column name="isbn" value="9781234567896"/>
+        <column name="page" value="150"/>
+        <column name="publisher" value="NXB Văn học"/>
+        <column name="reprint" value="2"/>
+        <column name="stock" value="60"/>
+        <column name="sold" value="40"/>
+        <column name="publishedDate" value="2020-01-20"/>
+        <column name="author_name" value="Nam Cao"/>
+        <column name="category_id" value="3"/>
+    </insert>
+    <insert tableName="book">
+        <column name="title" value="Tôi thấy hoa vàng trên cỏ xanh"/>
+        <column name="price" value="98000"/>
+        <column name="average_rating" value="4.3"/>
+        <column name="book_description" value="Một cuốn tiểu thuyết nhẹ nhàng, trong trẻo về tuổi thơ nơi làng quê Việt Nam. Với lối kể giản dị mà sâu sắc, tác phẩm mang đến những rung cảm chân thành về tình anh em, tình bạn và những mộng mơ ngây ngô đầu đời."/>
+        <column name="language" value="Tiếng Việt"/>
+        <column name="image_path" value="https://www.nxbtre.com.vn/Images/Book/NXBTreStoryFull_02482010_104821.jpg"/>
+        <column name="isbn" value="9781234567897"/>
+        <column name="page" value="280"/>
+        <column name="publisher" value="NXB Trẻ"/>
+        <column name="reprint" value="1"/>
+        <column name="stock" value="70"/>
+        <column name="sold" value="30"/>
+        <column name="publishedDate" value="2019-07-01"/>
+        <column name="author_name" value="Nguyễn Nhật Ánh"/>
+        <column name="category_id" value="3"/>
+    </insert>
+    <insert tableName="book">
+        <column name="title" value="Người lái đò sông Đà"/>
+        <column name="price" value="89000"/>
+        <column name="average_rating" value="4.1"/>
+        <column name="book_description" value="Tác phẩm nổi bật của Nguyễn Tuân ca ngợi vẻ đẹp hung vĩ của thiên nhiên Tây Bắc và hình tượng người lao động anh dũng – người lái đò sông Đà. Với bút pháp tài hoa, cuốn sách là bản giao hưởng ngôn từ trữ tình và sâu sắc."/>
+        <column name="language" value="Tiếng Việt"/>
+        <column name="image_path" value="https://hocvan.edu.vn/wp-content/uploads/2023/07/so-sanh-lien-he-mo-rong-tac-pham-nguoi-lai-do-song-da-cua-nguyen-tuan.jpg"/>
+        <column name="isbn" value="9781234567898"/>
+        <column name="page" value="190"/>
+        <column name="publisher" value="NXB Văn học"/>
+        <column name="reprint" value="2"/>
+        <column name="stock" value="65"/>
+        <column name="sold" value="25"/>
+        <column name="publishedDate" value="2020-03-14"/>
+        <column name="author_name" value="Nguyễn Tuân"/>
+        <column name="category_id" value="3"/>
+    </insert>
+
+    <insert tableName="book">
+        <column name="title" value="Dế mèn phiêu lưu ký"/>
+        <column name="price" value="60000"/>
+        <column name="average_rating" value="4.4"/>
+        <column name="book_description" value="Câu chuyện kể về hành trình trưởng thành của Dế Mèn qua các chuyến phiêu lưu đầy lý thú và bài học đạo đức. Một tác phẩm văn học thiếu nhi kinh điển mang đậm tính nhân văn và triết lý sống giản dị mà sâu sắc."/>
+        <column name="language" value="Tiếng Việt"/>
+        <column name="image_path" value="https://cdn1.fahasa.com/media/catalog/product/d/e/de-men-50k_1.jpg"/>
+        <column name="isbn" value="9781234567899"/>
+        <column name="page" value="130"/>
+        <column name="publisher" value="NXB Kim Đồng"/>
+        <column name="reprint" value="4"/>
+        <column name="stock" value="110"/>
+        <column name="sold" value="80"/>
+        <column name="publishedDate" value="2023-02-25"/>
+        <column name="author_name" value="Tô Hoài"/>
+        <column name="category_id" value="4"/>
+    </insert>
+    <insert tableName="book">
+        <column name="title" value="Harry Potter và Hòn đá phù thủy"/>
+        <column name="price" value="150000"/>
+        <column name="average_rating" value="4.9"/>
+        <column name="book_description" value="Tập đầu tiên của loạt truyện huyền thoại kể về hành trình phiêu lưu của cậu bé phù thủy Harry Potter tại trường Hogwarts. Với phép thuật, tình bạn và những bí ẩn ly kỳ, tác phẩm mở ra một thế giới kỳ ảo đầy cảm xúc dành cho mọi lứa tuổi."/>
+        <column name="language" value="Tiếng Việt"/>
+        <column name="image_path" value="https://www.nxbtre.com.vn/Images/Book/nxbtre_full_21042022_030444.jpg"/>
+        <column name="isbn" value="9781234567900"/>
+        <column name="page" value="320"/>
+        <column name="publisher" value="NXB Trẻ"/>
+        <column name="reprint" value="6"/>
+        <column name="stock" value="200"/>
+        <column name="sold" value="180"/>
+        <column name="publishedDate" value="2018-12-12"/>
+        <column name="author_name" value="J.K. Rowling"/>
+        <column name="category_id" value="4"/>
+    </insert>
+    <insert tableName="book">
+        <column name="title" value="Chuyện xưa tích cũ"/>
+        <column name="price" value="85000"/>
+        <column name="average_rating" value="4.0"/>
+        <column name="book_description" value="Tổng hợp những câu chuyện cổ tích đặc sắc của Việt Nam được kể lại một cách sinh động, gần gũi. Mỗi truyện đều chứa đựng bài học đạo lý sâu sắc, góp phần bồi dưỡng tâm hồn và bản sắc văn hóa dân tộc cho thế hệ trẻ."/>
+        <column name="language" value="Tiếng Việt"/>
+        <column name="image_path" value="https://bizweb.dktcdn.net/thumb/grande/100/180/408/products/ha-noi-chuyen-xua-pho-cu-4.png?v=1666022751190"/>
+        <column name="isbn" value="9781234567901"/>
+        <column name="page" value="200"/>
+        <column name="publisher" value="NXB Kim Đồng"/>
+        <column name="reprint" value="1"/>
+        <column name="stock" value="90"/>
+        <column name="sold" value="50"/>
+        <column name="publishedDate" value="2022-08-10"/>
+        <column name="author_name" value="g hợp dân gian Việt Nam"/>
+        <column name="category_id" value="4"/>
+    </insert>
+
+    <insert tableName="book">
+        <column name="title" value="The Hobbit"/>
+        <column name="price" value="160000"/>
+        <column name="average_rating" value="4.8"/>
+        <column name="book_description" value="Tác phẩm giả tưởng kinh điển kể về hành trình phiêu lưu kỳ thú của Bilbo Baggins đến xứ sở người lùn, rồng và kho báu. Một thế giới kỳ ảo mở ra với thông điệp về lòng dũng cảm, tình bạn và sự trưởng thành."/>
+        <column name="language" value="Tiếng Việt"/>
+        <column name="image_path" value="https://m.media-amazon.com/images/I/71jD4jMityL._UF1000,1000_QL80_.jpg"/>
+        <column name="isbn" value="9781234567902"/>
+        <column name="page" value="310"/>
+        <column name="publisher" value="NXB Văn học"/>
+        <column name="reprint" value="2"/>
+        <column name="stock" value="100"/>
+        <column name="sold" value="70"/>
+        <column name="publishedDate" value="2023-04-01"/>
+        <column name="author_name" value="J.R.R. Tolkien"/>
+        <column name="category_id" value="5"/>
+    </insert>
+    <insert tableName="book">
+        <column name="title" value="Maze Runner - Lối thoát tử thần"/>
+        <column name="price" value="135000"/>
+        <column name="average_rating" value="4.5"/>
+        <column name="book_description" value="Thomas tỉnh dậy trong một mê cung khổng lồ với trí nhớ bị xóa sạch. Cuộc chiến sinh tồn cam go bắt đầu khi cậu và những người khác tìm cách thoát ra. Một tiểu thuyết đầy kịch tính, pha trộn giữa hành động, bí ẩn và khoa học viễn tưởng."/>
+        <column name="language" value="Tiếng Việt"/>
+        <column name="image_path" value="https://cdn1.fahasa.com/media/catalog/product/l/o/loi-thoat-tu-than-b.jpg"/>
+        <column name="isbn" value="9781234567903"/>
+        <column name="page" value="290"/>
+        <column name="publisher" value="NXB Trẻ"/>
+        <column name="reprint" value="1"/>
+        <column name="stock" value="95"/>
+        <column name="sold" value="55"/>
+        <column name="publishedDate" value="2021-03-18"/>
+        <column name="author_name" value="James Dashner"/>
+        <column name="category_id" value="5"/>
+    </insert>
+    <insert tableName="book">
+        <column name="title" value="Ready Player One"/>
+        <column name="price" value="145000"/>
+        <column name="average_rating" value="4.7"/>
+        <column name="book_description" value="Trong thế giới tương lai nơi thực tế ảo thống trị, một cậu bé nghèo tham gia cuộc săn tìm kho báu để giành quyền kiểm soát hệ thống OASIS. Tác phẩm hấp dẫn với sự kết hợp giữa trò chơi điện tử, văn hóa pop và trí tuệ công nghệ."/>
+        <column name="language" value="Tiếng Việt"/>
+        <column name="image_path" value="https://m.media-amazon.com/images/I/91FGDm7MfIL._UF1000,1000_QL80_.jpg"/>
+        <column name="isbn" value="9781234567904"/>
+        <column name="page" value="340"/>
+        <column name="publisher" value="NXB Khoa học viễn tưởng"/>
+        <column name="reprint" value="1"/>
+        <column name="stock" value="85"/>
+        <column name="sold" value="60"/>
+        <column name="publishedDate" value="2022-11-11"/>
+        <column name="author_name" value="Ernest Cline"/>
+        <column name="category_id" value="5"/>
+    </insert>
+
+
+</changeSet>
+</databaseChangeLog>

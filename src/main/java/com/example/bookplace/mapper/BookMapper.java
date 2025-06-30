@@ -28,6 +28,7 @@ public class BookMapper {
         book.setStock(bookCreate.getStock());
         book.setSold(bookCreate.getSold());
         book.setPublishedDate(bookCreate.getPublishedDate());
+        book.setAuthorName(bookCreate.getAuthorName());
         return book;
     }
 
@@ -43,5 +44,6 @@ public class BookMapper {
         existingBook.setReprint(bookUpdate.getReprint());
         existingBook.setStock(bookUpdate.getStock());
         existingBook.setPublishedDate(bookUpdate.getPublishedDate());
+        existingBook.setAuthorName(bookUpdate.getAuthorName());
     }
 }
