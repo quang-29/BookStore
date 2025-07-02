@@ -44,6 +44,9 @@ public class IUserService implements UserService {
         }
             String token = jwtUtils.generateToken(user.getUsername());
             return  LoginResponse.builder()
+                    .id(user.getId())
+                    .email(user.getEmail())
+                    .username(user.getUsername())
                     .token(token)
                     .message("Log In Successfully")
                     .build();

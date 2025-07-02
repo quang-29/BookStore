@@ -9,6 +9,8 @@ https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
     <include file="db/changelog/v1_0/create_table_category.xml" />
     <include file="db/changelog/v1_0/create_table_author.xml" />
     <include file="db/changelog/v1_0/create_table_book.xml" />
+    <include file="db/changelog/v1_0/create_table_order.xml" />
+    <include file="db/changelog/v1_0/create_table_orderItem.xml" />
     <include file="/db/changelog/v1_0/insert_default_user.xml"/>
     <include file="db/changelog/v1_0/insert_default_author.xml" />
     <include file="/db/changelog/v1_0/insert_default_category.xml"/>

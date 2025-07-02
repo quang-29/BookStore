@@ -189,7 +189,7 @@
         <column name="page" value="200"/>
         <column name="publisher" value="NXB Kim Đồng"/>
         <column name="reprint" value="1"/>
-        <column name="stock" value="90"/>
+        <column name="stock" value="0"/>
         <column name="sold" value="50"/>
         <column name="publishedDate" value="2022-08-10"/>
         <column name="author_name" value="Tổng hợp dân gian Việt Nam"/>
@@ -207,7 +207,7 @@
         <column name="page" value="310"/>
         <column name="publisher" value="NXB Văn học"/>
         <column name="reprint" value="2"/>
-        <column name="stock" value="100"/>
+        <column name="stock" value="0"/>
         <column name="sold" value="70"/>
         <column name="publishedDate" value="2023-04-01"/>
         <column name="author_name" value="J.R.R. Tolkien"/>

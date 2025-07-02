@@ -8,6 +8,6 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 public class BookCart {
-    private Long bookId;
-    private Integer quantity;
+    private Long id;
+    private Integer number;
 }

@@ -25,7 +25,9 @@ import java.util.Arrays;
 public class SecurityConfig {
 
     private static final String[] PUBLIC_ENPOINTS = {"/api/v1/user/login", "/api/v1/user/signup"
-            ,"/api/v1/category/all", "/api/v1/book/*", "/api/v1/author/all", "/api/v1/book/category/{id}"};
+            ,"/api/v1/category/all", "/api/v1/book/*", "/api/v1/author/all", "/api/v1/book/category/{id}",
+            "/api/v1/order/***",
+    "/api/v1/order/placeOrder"};
 
 
     private final JwtAuthFilter jwtAuthFilter;
@@ -53,7 +55,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList("http://localhost:5173/"));
+        config.setAllowedOrigins(Arrays.asList("http://localhost:5173"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowCredentials(true);

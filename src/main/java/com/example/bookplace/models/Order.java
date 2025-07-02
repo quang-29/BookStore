@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -33,4 +36,7 @@ public class Order {
 
     @Column(name = "total_price", nullable = false)
     private BigDecimal totalPrice;
+
+    @Column(name = "created_at", nullable = false)
+    private LocalDateTime created_at;
 }
