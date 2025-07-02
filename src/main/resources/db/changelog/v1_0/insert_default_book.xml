@@ -192,7 +192,7 @@
         <column name="stock" value="90"/>
         <column name="sold" value="50"/>
         <column name="publishedDate" value="2022-08-10"/>
-        <column name="author_name" value="g hợp dân gian Việt Nam"/>
+        <column name="author_name" value="Tổng hợp dân gian Việt Nam"/>
         <column name="category_id" value="4"/>
     </insert>
 

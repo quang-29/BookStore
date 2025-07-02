@@ -9,8 +9,5 @@ import java.math.BigDecimal;
 @Setter
 public class BookCart {
     private Long bookId;
-    private String title;
-    private String author;
-    private BigDecimal price;
     private Integer quantity;
 }

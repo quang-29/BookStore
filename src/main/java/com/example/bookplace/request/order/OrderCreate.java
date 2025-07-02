@@ -11,6 +11,6 @@ import java.util.List;
 public class OrderCreate {
     private Long userId;
     private String address;
-    private List<BookCart> bookList;
+    private List<BookCart> bookCart;
 
 }
