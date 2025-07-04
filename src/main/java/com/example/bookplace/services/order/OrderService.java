@@ -12,8 +12,8 @@ public interface OrderService {
     String placeOrder(OrderCreate orderCreate);
     String updateOrder(OrderUpdate orderUpdate);
     Order getOrderById(Long id);
-    Page<Order> getAllOrders(Pageable pageable);
-    Page<Order> getAllOrdersByUserId(Long userId, Pageable pageable);
+    Page<OrderDTO> getAllOrders(Pageable pageable);
+    Page<OrderDTO> getAllOrdersByUserId(Long userId, Pageable pageable);
 
 
 }

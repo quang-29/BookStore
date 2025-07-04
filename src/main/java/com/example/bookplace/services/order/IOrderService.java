@@ -11,6 +11,7 @@ import com.example.bookplace.request.book.BookCart;
 import com.example.bookplace.request.order.*;
 import com.example.bookplace.response.PageResponse;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -86,14 +87,69 @@ public class IOrderService implements OrderService {
     }
 
     @Override
-    public Page<Order> getAllOrders(Pageable pageable) {
-        Page<Order> orders = orderRepository.findAll(pageable);
-        return orders;
+    public Page<OrderDTO> getAllOrders(Pageable pageable) {
+        Page<Order> orders = orderRepository.findAllOrders(pageable);
+        List<OrderDTO> orderDTOS = new ArrayList<>();
+        for (Order order : orders.getContent()) {
+            OrderDTO orderDTO = new OrderDTO();
+            orderDTO.setId(order.getId());
+            orderDTO.setAddress(order.getAddress());
+            orderDTO.setStatus(order.getStatus());
+            orderDTO.setTotalPrice(order.getTotalPrice());
+            orderDTO.setCreatedAt(order.getCreated_at());
+
+            List<OrderItem> orderItems = orderItemRepository.findAllByOrderId(order.getId());
+
+            List<OrderItemDTO> orderItemDTOS = new ArrayList<>();
+
+            for (OrderItem orderItem : orderItems) {
+                Book book = bookRepository.findById(orderItem.getBookId()).get();
+                OrderItemDTO orderItemDTO = new OrderItemDTO();
+                orderItemDTO.setBookId(book.getId());
+                orderItemDTO.setQuantity(orderItem.getQuantity());
+                orderItemDTO.setBookTitle(book.getTitle());
+                orderItemDTO.setBookAuthor(book.getAuthorName());
+                orderItemDTO.setBookPrice(book.getPrice());
+                orderItemDTO.setBookImage(book.getImagePath());
+                orderItemDTOS.add(orderItemDTO);
+            }
+            orderDTO.setOrderItemDTOList(orderItemDTOS);
+            orderDTOS.add(orderDTO);
+        }
+        return new PageImpl<>(orderDTOS, pageable, orders.getTotalElements());
     }
 
     @Override
-    public Page<Order> getAllOrdersByUserId(Long userId, Pageable pageable) {
+    public Page<OrderDTO> getAllOrdersByUserId(Long userId, Pageable pageable) {
         Page<Order> orders = orderRepository.findAllOrdersByUserId(userId, pageable);
-        return orders;
+        List<OrderDTO> orderDTOS = new ArrayList<>();
+
+        for (Order order : orders.getContent()) {
+            OrderDTO orderDTO = new OrderDTO();
+            orderDTO.setId(order.getId());
+            orderDTO.setAddress(order.getAddress());
+            orderDTO.setStatus(order.getStatus());
+            orderDTO.setTotalPrice(order.getTotalPrice());
+            orderDTO.setCreatedAt(order.getCreated_at());
+
+            List<OrderItem> orderItems = orderItemRepository.findAllByOrderId(order.getId());
+
+            List<OrderItemDTO> orderItemDTOS = new ArrayList<>();
+
+            for (OrderItem orderItem : orderItems) {
+                Book book = bookRepository.findById(orderItem.getBookId()).get();
+                OrderItemDTO orderItemDTO = new OrderItemDTO();
+                orderItemDTO.setBookId(book.getId());
+                orderItemDTO.setQuantity(orderItem.getQuantity());
+                orderItemDTO.setBookTitle(book.getTitle());
+                orderItemDTO.setBookAuthor(book.getAuthorName());
+                orderItemDTO.setBookPrice(book.getPrice());
+                orderItemDTO.setBookImage(book.getImagePath());
+                orderItemDTOS.add(orderItemDTO);
+            }
+            orderDTO.setOrderItemDTOList(orderItemDTOS);
+            orderDTOS.add(orderDTO);
+        }
+        return new PageImpl<>(orderDTOS, pageable, orders.getTotalElements());
     }
 }

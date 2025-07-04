@@ -2,10 +2,7 @@ package com.example.bookplace.controllers;
 
 import com.example.bookplace.models.Book;
 import com.example.bookplace.models.Order;
-import com.example.bookplace.request.order.OrderCreate;
-import com.example.bookplace.request.order.OrderDetailDTO;
-import com.example.bookplace.request.order.OrderResponse;
-import com.example.bookplace.request.order.OrderResponseProjection;
+import com.example.bookplace.request.order.*;
 import com.example.bookplace.response.PageResponse;
 import com.example.bookplace.services.order.OrderService;
 import org.springframework.data.domain.Page;
@@ -33,8 +30,8 @@ public class OrderController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<Page<Order>> getAllOrders(Pageable pageable){
-        Page<Order> orders = orderService.getAllOrders(pageable);
+    public ResponseEntity<Page<OrderDTO>> getAllOrders(Pageable pageable){
+        Page<OrderDTO> orders = orderService.getAllOrders(pageable);
         return ResponseEntity.ok(orders);
     }
 
@@ -45,9 +42,9 @@ public class OrderController {
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<Page<Order>> getBooksByUserId(@PathVariable Long userId, Pageable pageable){
-        Page<Order> orders = orderService.getAllOrdersByUserId(userId,pageable);
-        return ResponseEntity.ok(orders);
+    public ResponseEntity<Page<OrderDTO>> getBooksByUserId(@PathVariable Long userId, Pageable pageable){
+        Page<OrderDTO> orderDTOS = orderService.getAllOrdersByUserId(userId,pageable);
+        return ResponseEntity.ok(orderDTOS);
     }
 
 }
